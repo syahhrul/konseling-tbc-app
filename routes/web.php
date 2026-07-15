@@ -183,12 +183,15 @@ Route::get('/migrate-db', function () {
     }
 });
 
-// Pemicu otomatis untuk melakukan migrasi database langsung dari browser
+use Illuminate\Support\Facades\Artisan;
+// use Illuminate\Support\Facades\Route;
+
 Route::get('/artisan-migrate-mpti', function () {
     try {
-        \Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
-        return "Mantap! Database Neon sukses di-migrate dan di-seed untuk MPTI.";
+        // Menjalankan migrasi secara paksa ke database production Neon
+        Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
+        return "Mantap! Semua tabel termasuk tabel push_subscriptions berhasil dibuat di Neon.";
     } catch (\Exception $e) {
-        return "Gagal karena: " . $e->getMessage();
+        return "Gagal melakukan migrasi. Error: " . $e->getMessage();
     }
 });
