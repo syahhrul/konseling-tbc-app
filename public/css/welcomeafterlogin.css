@@ -1,0 +1,40 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+.hero {
+    background-color: #0f172a;
+    color: white;
+    padding: 0;
+    text-align: center;
+}
+.carousel-item img {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+.section {
+    padding: 50px 0;
+}
+.btn-merah {
+    background-color: #dc3545;
+    color: white;
+}
+.tentang {
+    background-color: #cfe8fc;
+}
+footer {
+    background-color: #0f172a;
+    color: white;
+    padding: 30px 0;
+}
+.img-paru {
+    max-width: 300px;
+}
+
+/* Bisa ditambahkan via Tailwind atau style tag jika pakai dinamis JS */
+#carousel-inner {
+    width: calc(100% * 4); /* 4 = jumlah gambar (termasuk duplikat) */
+}
+
+  

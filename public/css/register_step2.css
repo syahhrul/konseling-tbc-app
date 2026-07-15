@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+}
+
+/* Bungkus tengah */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Kotak transparan berisi login dan gambar */
+.card-wrapper {
+  display: flex;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Kontainer form */
+.login-container {
+  color: #000;
+  width: 320px;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.login-container input,
+.login-container select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #00468B;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-footer {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Ilustrasi */
+.nurse-illustration img {
+  max-height: 500px;
+  width: auto;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .card-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nurse-illustration img {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+}
+
+/* resources/css/auth.css */
+
+.btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700;
+}
+
+.btn-secondary {
+    @apply bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400;
+}

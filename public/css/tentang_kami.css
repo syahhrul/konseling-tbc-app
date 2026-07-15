@@ -1,0 +1,200 @@
+/* General Body and Font Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #87CEFA;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+nav {
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    flex-wrap: wrap;
+}
+
+nav a img {
+    height: 40px;
+}
+
+nav .font-semibold {
+    font-size: 20px;
+    color: #333;
+}
+
+nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f00;
+}
+
+/* Timeline Section */
+.timeline-section {
+    background-color: #fff;
+    padding: 40px 20px;
+}
+
+.timeline-section h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.timeline-item div {
+    background-color: #f00;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+}
+
+.timeline-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 16px;
+}
+
+.timeline-item p {
+    color: #666;
+    font-size: 16px;
+    margin-left: 36px;
+}
+
+.timeline-section .timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Visi dan Misi Section */
+.visi-misi-section {
+    background-color: #e0f7fa;
+    padding: 40px 20px;
+}
+
+.visi-misi-section h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.visi-misi-section .btn-primary {
+    background-color: #f00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.visi-misi-section .btn-primary:hover {
+    background-color: #cc0000;
+}
+
+.visi-misi-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.visi-misi-section ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #0f172a; /* Warna latar belakang biru gelap */
+    color: white;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Judul Footer */
+footer h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Teks Footer */
+footer p {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 16px;
+    max-width: 90%;
+    line-height: 1.5;
+}
+
+/* Seksi Social Links */
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;  /* Tambahkan jarak antar ikon */
+    margin-bottom: 16px;
+}
+
+footer .social-links a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+    color: #ff6347; /* Ubah warna saat hover */
+}
+
+/* Footer Bottom */
+footer .footer-bottom {
+    background-color: #003b53; /* Latar belakang biru lebih gelap di bagian bawah */
+    width: 100%;
+    padding: 10px 0;
+    font-size: 12px;
+}
+
+footer .footer-bottom p {
+    margin: 0;
+    color: #fff;
+}
+
+/* Desain Responsif */
+@media (max-width: 768px) {
+    footer .social-links {
+        flex-direction: column; /* Susun ikon secara vertikal pada layar kecil */
+        gap: 10px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
