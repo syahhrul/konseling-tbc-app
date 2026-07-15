@@ -170,3 +170,15 @@ Route::middleware('auth')->post('/push-subscribe', [PushNotificationController::
 Route::middleware('auth')->post('/admin/trigger-push-demo/{id}', [PushNotificationController::class, 'triggerDemoNotification'])->name('admin.trigger.push.demo');
 Route::middleware('auth')->get('/skrining_kontak', [SkriningKontakController::class, 'create'])->name('skrining.kontak.create');
 Route::middleware('auth')->post('/skrining_kontak', [SkriningKontakController::class, 'store'])->name('skrining.kontak.store');
+
+Route::get('/migrate-db', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
+            '--seed' => true,
+            '--force' => true,
+        ]);
+        return "Migrasi dan Seeding Database Berhasil Dijalankan!";
+    } catch (\Exception $e) {
+        return "Error saat migrasi: " . $e->getMessage();
+    }
+});
