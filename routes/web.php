@@ -182,3 +182,13 @@ Route::get('/migrate-db', function () {
         return "Error saat migrasi: " . $e->getMessage();
     }
 });
+
+// Pemicu otomatis untuk melakukan migrasi database langsung dari browser
+Route::get('/artisan-migrate-mpti', function () {
+    try {
+        \Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
+        return "Mantap! Database Neon sukses di-migrate dan di-seed untuk MPTI.";
+    } catch (\Exception $e) {
+        return "Gagal karena: " . $e->getMessage();
+    }
+});
