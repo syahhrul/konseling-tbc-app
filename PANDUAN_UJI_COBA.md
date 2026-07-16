@@ -14,19 +14,18 @@ Dokumen ini berisi panduan singkat untuk seluruh tim guna menguji coba aplikasi 
 Gunakan daftar akun berikut untuk masuk ke aplikasi:
 
 ### A. Akun Perawat / Admin (Pusat Monitoring)
-*   **Username**: `admin`
-*   **Password**: `admin123`
+*   **Username**: `admin` / **Password**: `admin123`
+*   **Username**: `admin2` / **Password**: `admin123` (Cadangan)
 
 ### B. Akun Pasien (Untuk Pengguna/Android/Windows)
 *   **Pasien Baru (Belum Mengisi Hari Ini)**:
-    *   **Username**: `pasienc`
-    *   **Password**: `pasien123`
+    *   **Username**: `pasienc` / **Password**: `pasien123`
+    *   **Username**: `pasiend` / **Password**: `pasien123` (Cadangan)
+    *   **Username**: `pasiene` / **Password**: `pasien123` (Cadangan)
 *   **Pasien Patuh (Sudah Streak 5 Hari)**:
-    *   **Username**: `pasiena`
-    *   **Password**: `pasien123`
+    *   **Username**: `pasiena` / **Password**: `pasien123`
 *   **Pasien Kritis (Belum Lapor > 48 Jam)**:
-    *   **Username**: `pasienb`
-    *   **Password**: `pasien123`
+    *   **Username**: `pasienb` / **Password**: `pasien123`
 
 ---
 

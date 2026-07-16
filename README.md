@@ -77,10 +77,13 @@ Silakan kunjungi tautan demo langsung berikut:
 
 | Peran (Role) | Username | Password | Keterangan |
 | :--- | :--- | :--- | :--- |
-| **Perawat (Admin)** | `admin` | `admin123` | Mengakses dashboard pemantauan semua pasien & mengirim demo notifikasi. |
-| **Pasien Baru** | `pasienc` | `pasien123` | Pasien yang belum mengisi laporan hari ini. |
-| **Pasien Patuh** | `pasiena` | `pasien123` | Pasien dengan streak patuh minum obat 5 hari. |
-| **Pasien Kritis** | `pasienb` | `pasien123` | Pasien yang terlambat melapor lebih dari 48 jam. |
+| **Perawat (Admin)** | `admin` | `admin123` | Dashboard pemantauan utama semua pasien. |
+| **Perawat (Cadangan)** | `admin2` | `admin123` | Akun perawat tambahan untuk pengujian simultan. |
+| **Pasien Baru C** | `pasienc` | `pasien123` | Pasien demo (belum lapor hari ini). |
+| **Pasien Baru D** | `pasiend` | `pasien123` | Pasien demo tambahan (belum lapor hari ini). |
+| **Pasien Baru E** | `pasiene` | `pasien123` | Pasien demo tambahan (belum lapor hari ini). |
+| **Pasien Patuh** | `pasiena` | `pasien123` | Pasien dengan rekor patuh minum obat (streak 5 hari). |
+| **Pasien Kritis** | `pasienb` | `pasien123` | Pasien terlambat lapor > 48 jam (masuk EWS). |
 
 ---
 

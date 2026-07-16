@@ -160,5 +160,71 @@ class DatabaseSeeder extends Seeder
             'current_streak' => 0,
             'highest_streak' => 0,
         ]);
+
+        // 5. Akun Pasien D (Demo lapor harian kosong)
+        User::create([
+            'name' => 'Pasien Baru D',
+            'first_name' => 'Pasien',
+            'last_name' => 'Baru D',
+            'username' => 'pasiend',
+            'email' => 'pasiend@gmail.com',
+            'role' => 'pengguna',
+            'password' => Hash::make('pasien123'),
+            'gender' => 'Perempuan',
+            'jenis_kelamin' => 'Perempuan',
+            'usia' => 23,
+            'birth_date' => '2003-08-12',
+            'phone' => '08998995841',
+            'nomor_wa_pasien' => '08998995841',
+            'nomor_wa_pmo' => '08998995841',
+            'riwayat_penyakit' => 'Tidak ada',
+            'address' => 'Bantul',
+            'current_streak' => 0,
+            'highest_streak' => 0,
+        ]);
+
+        // 6. Akun Pasien E (Demo lapor harian kosong)
+        User::create([
+            'name' => 'Pasien Baru E',
+            'first_name' => 'Pasien',
+            'last_name' => 'Baru E',
+            'username' => 'pasiene',
+            'email' => 'pasiene@gmail.com',
+            'role' => 'pengguna',
+            'password' => Hash::make('pasien123'),
+            'gender' => 'Laki-laki',
+            'jenis_kelamin' => 'Laki-laki',
+            'usia' => 24,
+            'birth_date' => '2002-12-05',
+            'phone' => '08998995841',
+            'nomor_wa_pasien' => '08998995841',
+            'nomor_wa_pmo' => '08998995841',
+            'riwayat_penyakit' => 'Tidak ada',
+            'address' => 'Yogyakarta',
+            'current_streak' => 0,
+            'highest_streak' => 0,
+        ]);
+
+        // 7. Akun Perawat Cadangan
+        User::create([
+            'name' => 'Perawat Cadangan',
+            'first_name' => 'Perawat',
+            'last_name' => 'Cadangan',
+            'username' => 'admin2',
+            'email' => 'admin2@tbccare.com',
+            'role' => 'admin',
+            'password' => Hash::make('admin123'),
+            'gender' => 'Laki-laki',
+            'jenis_kelamin' => 'Laki-laki',
+            'usia' => 28,
+            'birth_date' => '1998-05-20',
+            'phone' => '08998995841',
+            'nomor_wa_pasien' => '08998995841',
+            'nomor_wa_pmo' => '08998995841',
+            'riwayat_penyakit' => 'Tidak ada',
+            'address' => 'Puskesmas',
+            'current_streak' => 0,
+            'highest_streak' => 0,
+        ]);
     }
 }
