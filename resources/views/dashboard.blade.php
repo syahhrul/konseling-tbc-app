@@ -306,11 +306,27 @@
                 <div class="card border-0 shadow-sm p-4 h-100">
                     <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-bell me-2 text-warning"></i>Pengingat Otomatis</h3>
                     <p class="text-secondary small mb-3">Apabila Anda belum melaporkan status minum obat hari ini hingga pukul <strong>21:00 WIB</strong>, sistem TBC Care secara otomatis mengirimkan notifikasi peringatan ke WhatsApp Pengawas Menelan Obat (PMO) Anda.</p>
-                    <div class="p-3 bg-light rounded-3 d-flex align-items-center gap-3">
+                    <div class="p-3 bg-light rounded-3 d-flex align-items-center gap-3 mb-3">
                         <i class="fa-brands fa-whatsapp text-success fs-3"></i>
                         <div>
                             <div class="fw-semibold small">Status Integrasi PMO</div>
                             <div class="text-success small"><i class="fa-solid fa-circle-check me-1"></i>Aktif & Terkoneksi</div>
+                        </div>
+                    </div>
+                    <div id="push-status-container" class="mt-2">
+                        <button id="btn-enable-push" class="btn btn-teal btn-sm w-100 rounded-pill shadow-sm py-2" style="display: none;">
+                            <i class="fa-solid fa-bell me-1"></i> Aktifkan Notifikasi Pengingat Browser
+                        </button>
+                        <div id="push-active-badge" class="p-3 bg-success bg-opacity-10 rounded-3 d-flex align-items-center gap-3" style="display: none;">
+                            <i class="fa-solid fa-bell text-success fs-3"></i>
+                            <div>
+                                <div class="fw-semibold small text-success">Notifikasi Browser</div>
+                                <div class="text-secondary small text-success">Aktif & Siap Menerima Pengingat</div>
+                            </div>
+                        </div>
+                        <div id="ios-pwa-tip" class="p-3 bg-warning bg-opacity-10 rounded-3 small text-dark mt-2" style="display: none;">
+                            <i class="fa-solid fa-circle-info text-warning me-1"></i> 
+                            <strong>Pengguna iPhone/iPad:</strong> Tambahkan web ini ke <strong>Layar Utama (Add to Home Screen)</strong> terlebih dahulu melalui tombol Share Safari agar fitur notifikasi didukung.
                         </div>
                     </div>
                 </div>
@@ -354,30 +370,51 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const vapidPublicKey = "{{ config('webpush.vapid.public_key') }}";
+            const btnEnablePush = document.getElementById('btn-enable-push');
+            const pushActiveBadge = document.getElementById('push-active-badge');
+            const iosPwaTip = document.getElementById('ios-pwa-tip');
             
             if (!vapidPublicKey) {
-                console.warn("[WebPush] VAPID Public Key is not configured. Please run php artisan webpush:generate first.");
+                console.warn("[WebPush] VAPID Public Key is not configured.");
                 return;
             }
 
+            // Detect iOS Safari behavior
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+
+            if (isIOS && !isStandalone) {
+                if (iosPwaTip) iosPwaTip.style.display = 'block';
+            }
+
             if ('serviceWorker' in navigator && 'PushManager' in window) {
-                // Register Service Worker
                 navigator.serviceWorker.register('/sw.js')
-                    .then(function (registration) {
-                        console.log('[ServiceWorker] Registered successfully with scope:', registration.scope);
-                        
-                        // Request Permission and Subscribe
-                        return requestNotificationPermission().then(permission => {
-                            if (permission === 'granted') {
-                                return subscribeUserToPush(registration, vapidPublicKey);
-                            } else {
-                                console.warn('[WebPush] Notification permission denied.');
-                            }
-                        });
-                    })
-                    .catch(function (error) {
-                        console.error('[ServiceWorker] Registration failed:', error);
-                    });
+                     .then(function (registration) {
+                         console.log('[ServiceWorker] Registered successfully.');
+                         
+                         if (Notification.permission === 'granted') {
+                             if (pushActiveBadge) pushActiveBadge.style.display = 'flex';
+                             subscribeUserToPush(registration, vapidPublicKey);
+                         } else {
+                             if (btnEnablePush) {
+                                 btnEnablePush.style.display = 'block';
+                                 btnEnablePush.addEventListener('click', function() {
+                                     requestNotificationPermission().then(permission => {
+                                         if (permission === 'granted') {
+                                             btnEnablePush.style.display = 'none';
+                                             if (pushActiveBadge) pushActiveBadge.style.display = 'flex';
+                                             subscribeUserToPush(registration, vapidPublicKey);
+                                         } else {
+                                             alert('Izin notifikasi ditolak. Harap aktifkan izin notifikasi pada pengaturan browser Anda.');
+                                         }
+                                     });
+                                 });
+                             }
+                         }
+                     })
+                     .catch(function (error) {
+                         console.error('[ServiceWorker] Registration failed:', error);
+                     });
             } else {
                 console.warn('[WebPush] Push messaging is not supported in this browser.');
             }

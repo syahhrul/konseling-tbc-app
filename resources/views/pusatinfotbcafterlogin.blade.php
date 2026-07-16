@@ -215,15 +215,15 @@
                     <p class="text-secondary mb-3">Pengobatan TBC menggunakan kombinasi Obat Anti Tuberkulosis (OAT) yang disediakan secara gratis oleh pemerintah. Pengobatan dibagi menjadi dua tahap:</p>
                     <div class="row g-3 mb-4 small text-secondary">
                         <div class="col-md-6">
-                            <div class="p-4 rounded-4 bg-teal bg-opacity-10 h-100">
-                                <h6 class="fw-bold text-teal mb-2">1. Tahap Intensif (2 Bulan Pertama)</h6>
-                                <p class="mb-0">Pasien wajib minum obat setiap hari untuk membunuh kuman aktif dengan cepat dan mengurangi risiko penularan.</p>
+                            <div class="p-4 rounded-4 bg-teal h-100 text-white shadow-sm">
+                                <h6 class="fw-bold text-white mb-2">1. Tahap Intensif (2 Bulan Pertama)</h6>
+                                <p class="mb-0 text-white-75">Pasien wajib minum obat setiap hari untuk membunuh kuman aktif dengan cepat dan mengurangi risiko penularan.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="p-4 rounded-4 bg-teal bg-opacity-10 h-100">
-                                <h6 class="fw-bold text-teal mb-2">2. Tahap Lanjutan (4 Bulan Berikutnya)</h6>
-                                <p class="mb-0">Pasien meminum obat secara berkala (sesuai anjuran dokter) untuk membersihkan sisa kuman tidur dan mencegah kekambuhan.</p>
+                            <div class="p-4 rounded-4 bg-teal h-100 text-white shadow-sm">
+                                <h6 class="fw-bold text-white mb-2">2. Tahap Lanjutan (4 Bulan Berikutnya)</h6>
+                                <p class="mb-0 text-white-75">Pasien meminum obat secara berkala (sesuai anjuran dokter) untuk membersihkan sisa kuman tidur dan mencegah kekambuhan.</p>
                             </div>
                         </div>
                     </div>
