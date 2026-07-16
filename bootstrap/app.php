@@ -14,5 +14,10 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->report(function (\Throwable $e) {
+            file_put_contents('php://stderr', "ACTUAL ORIGINAL ERROR: " . $e->getMessage() . "\n" . $e->getTraceAsString() . "\n");
+            echo "<h1>ACTUAL ORIGINAL ERROR</h1>";
+            echo "<pre>" . htmlspecialchars($e->getMessage()) . "\n\n" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
+            exit(1);
+        });
     })->create();
