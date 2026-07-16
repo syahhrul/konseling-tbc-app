@@ -188,9 +188,9 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/artisan-migrate-mpti', function () {
     try {
-        // Menjalankan migrasi secara paksa ke database production Neon
+        // Menjalankan migrasi secara paksa ke database production Supabase
         Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
-        return "Mantap! Semua tabel termasuk tabel push_subscriptions berhasil dibuat di Neon.";
+        return "Mantap! Semua tabel berhasil dibuat dan diseed di Supabase PostgreSQL.";
     } catch (\Exception $e) {
         return "Gagal melakukan migrasi. Error: " . $e->getMessage();
     }
