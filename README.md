@@ -1,65 +1,89 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🫁 TBC Care — Sistem Konseling & Monitoring Tuberkulosis
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel Version](https://img.shields.io/badge/Laravel-12.x-red.svg?logo=laravel)](https://laravel.com)
+[![Runtime](https://img.shields.io/badge/Vercel-Serverless-black?logo=vercel)](https://vercel.com)
+[![Database](https://img.shields.io/badge/Supabase-PostgreSQL-blue?logo=supabase)](https://supabase.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## About Laravel
+**TBC Care** adalah platform kesehatan digital (*Digital Health Monitoring*) yang dirancang khusus untuk mempermudah pemantauan kepatuhan minum obat bagi pasien Tuberkulosis (TBC). Platform ini dibangun untuk mendukung program eliminasi TBC di Indonesia dengan menghubungkan pasien secara real-time ke Pengawas Menelan Obat (PMO) dan petugas kesehatan.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini dideploy secara *serverless* di **Vercel** dengan database cloud **PostgreSQL dari Supabase** untuk keperluan demo di **Gelar Karya MPTI**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🌟 Fitur Utama
 
-## Learning Laravel
+- **Laporan Harian Pasien (Cek Harian)**: Pencatatan cepat (1 menit) mengenai suhu tubuh, berat badan, gejala klinis, serta status konsumsi obat harian.
+- **Grafik & Rekor Kepatuhan (Streak)**: Sistem gamifikasi kepatuhan (*Hari Patuh*) untuk menyemangati pasien agar menyelesaikan masa terapi minimal 6 bulan tanpa putus.
+- **Skrining Kontak Erat Keluarga**: Deteksi dini risiko penularan bagi anggota keluarga serumah guna memutus rantai penularan TBC.
+- **Notifikasi Pengingat Real-Time (Web Push)**: Pengiriman notifikasi pengingat minum obat langsung ke peramban (browser) Windows & Android pasien.
+- **Integrasi Peringatan PMO**: Sistem pengingat otomatis jika pasien belum lapor minum obat hingga batas waktu yang ditentukan.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🛠️ Tech Stack & Arsitektur
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+*   **Framework**: [Laravel](https://laravel.com/)
+*   **Database**: [Supabase PostgreSQL](https://supabase.com/) dengan Connection Pooler (Supavisor)
+*   **Hosting & Serverless**: [Vercel](https://vercel.com/) via `vercel-php` runtime
+*   **Styling**: Bootstrap 5, FontAwesome 6, dan Google Fonts
+*   **Push Notification**: Web Push API (VAPID)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ⚙️ Langkah Instalasi Lokal
 
-### Premium Partners
+Jika Anda ingin menjalankan proyek ini di lingkungan lokal Anda:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+1. **Clone Repositori**:
+   ```bash
+   git clone https://github.com/syahhrul/konseling-tbc-app.git
+   cd konseling-tbc-app
+   ```
 
-## Contributing
+2. **Instal Dependensi**:
+   ```bash
+   composer install
+   npm install
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. **Konfigurasi Environment**:
+   Salin file `.env.example` menjadi `.env` dan sesuaikan kredensial database Anda.
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Code of Conduct
+4. **Migrasi & Seed Database**:
+   ```bash
+   php artisan migrate --seed
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. **Jalankan Aplikasi**:
+   ```bash
+   php artisan serve
+   # Di terminal terpisah jalankan Vite asset compiler
+   npm run dev
+   ```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🚀 Panduan Uji Coba Demo (Dashboard Vercel)
 
-## License
+Silakan kunjungi tautan demo langsung berikut:
+👉 **[TBC Care Demo Live](https://tbc-care.vercel.app)**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# PKUBANTUL-SISTEMTBC
->>>>>>> d5640be9de8bd62e0a2f2465c6d462ecad286b80
+### Akun Uji Coba (Seeded Accounts)
+
+| Peran (Role) | Username | Password | Keterangan |
+| :--- | :--- | :--- | :--- |
+| **Perawat (Admin)** | `admin` | `admin123` | Mengakses dashboard pemantauan semua pasien & mengirim demo notifikasi. |
+| **Pasien Baru** | `pasienc` | `pasien123` | Pasien yang belum mengisi laporan hari ini. |
+| **Pasien Patuh** | `pasiena` | `pasien123` | Pasien dengan streak patuh minum obat 5 hari. |
+| **Pasien Kritis** | `pasienb` | `pasien123` | Pasien yang terlambat melapor lebih dari 48 jam. |
+
+---
+
+## 📄 Lisensi
+
+Proyek ini bersifat open-source di bawah lisensi [MIT License](https://opensource.org/licenses/MIT).

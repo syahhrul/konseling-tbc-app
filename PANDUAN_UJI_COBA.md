@@ -6,9 +6,6 @@ Dokumen ini berisi panduan singkat untuk seluruh tim guna menguji coba aplikasi 
 
 ## 1. URL Aplikasi Utama
 *   **Alamat Web**: [https://tbc-care.vercel.app](https://tbc-care.vercel.app)
-*   **Rute Inisialisasi Database (Hanya dijalankan sekali di awal / jika ingin mereset)**:  
-    `https://tbc-care.vercel.app/artisan-migrate-mpti`  
-    *(Mengosongkan DB, membuat tabel baru, dan mengisi data akun uji coba secara otomatis).*
 
 ---
 
